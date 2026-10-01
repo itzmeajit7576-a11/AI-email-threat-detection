@@ -1,0 +1,24 @@
+Received: from mx1.security-alert-center.info (mx1.security-alert-center.info [91.240.118.82])
+	by relay-edge.core.net with ESMTPS id 33A910;
+	Wed, 30 Sep 2026 19:48:10 -0400
+From: "PayPal Security Notification" <service@paypal-security-alert-center.info>
+To: "User" <victim@corporate-domain.com>
+Reply-To: collector@tempmail-gateway.cc
+Subject: Account Alert: Unauthorized Login Attempt Detected on your Account
+Date: Wed, 30 Sep 2026 19:48:00 -0400
+Message-ID: <alert.20260930.194800@paypal-security-alert-center.info>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+SECURITY NOTIFICATION:
+
+We detected an unauthorized login attempt to your PayPal account from an unrecognized IP address (Moscow, Russian Federation).
+Your account access has been temporarily limited to protect your financial safety.
+
+To restore access and verify your identity within 24 hours, click below:
+https://paypal-security-alert-center.info/restore-access?id=99281
+
+Failure to confirm your credentials will result in permanent account suspension.
+
+Sincerely,
+PayPal Identity Verification Team

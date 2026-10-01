@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inbox Guardian | AI Email Threat Detection & Forensic Intelligence</title>
+  <meta name="description" content="Enterprise-grade AI-powered email threat detection, BGP IP geolocation, header forensics, and automated forensic intelligence platform.">
+  <meta name="theme-color" content="#060913">
+
+  <!-- Google Fonts: Inter, Outfit, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Background Cyber Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+  <div class="cyber-grid-overlay"></div>
+
+  <div class="app-container">
+
+    <!-- ==========================================================================
+         NAVIGATION BAR
+         ========================================================================== -->
+    <header class="site-header">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="#home" class="brand-logo" aria-label="Inbox Guardian Home">
+          <div class="logo-symbol">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <span class="logo-title">INBOX GUARDIAN</span>
+            <span class="logo-badge">
+              <span class="status-dot"></span> ENTERPRISE FORENSICS
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#analyze" class="nav-link">Analyze</a></li>
+            <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+            <li><a href="#threat-intel" class="nav-link">Threat Intelligence</a></li>
+            <li><a href="#forensics" class="nav-link">Forensics</a></li>
+            <li><a href="#reports" class="nav-link">Reports</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+          </ul>
+        </nav>
+
+        <!-- Right Side Actions -->
+        <div class="header-actions">
+          <!-- System Status Indicator -->
+          <div class="status-pill" id="system-status-pill" title="Click to view system subsystem health">
+            <span class="status-dot"></span>
+            <span>SYSTEM OPERATIONAL</span>
+          </div>
+
+          <!-- Analyze Quick Action Button -->
+          <a href="#analyze" class="btn btn-primary btn-sm">Analyze Email</a>
+
+          <!-- User Role Avatar -->
+          <div class="user-profile-badge" title="Authenticated SOC Analyst Tier 3">
+            <div class="avatar-circle">IG</div>
+            <span class="user-role-text">SOC TIER-3</span>
+          </div>
+
+          <!-- Mobile Toggle -->
+          <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- System Status Details Popover -->
+    <div class="status-popover" id="status-popover">
+      <div style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: bold; color: var(--cyan-neon); margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+        <span>TELEMETRY SUBSYSTEMS</span>
+        <span class="status-dot"></span>
+      </div>
+      <div class="status-service-item">
+        <span>AI Threat Heuristics</span>
+        <span class="badge badge-safe">ONLINE (12ms)</span>
+      </div>
+      <div class="status-service-item">
+        <span>RFC 5322 Header Parser</span>
+        <span class="badge badge-safe">ONLINE (4ms)</span>
+      </div>
+      <div class="status-service-item">
+        <span>Threat Intelligence Feeds</span>
+        <span class="badge badge-safe">ONLINE / MOCK</span>
+      </div>
+      <div class="status-service-item">
+        <span>BGP Geolocation Engine</span>
+        <span class="badge badge-safe">ONLINE / MOCK</span>
+      </div>
+      <div class="status-service-item">
+        <span>Forensic Report Generator</span>
+        <span class="badge badge-safe">ONLINE (8ms)</span>
+      </div>
+      <div style="font-size: 0.7rem; color: #64748b; margin-top: 10px; font-family: var(--font-mono);">
+        Cluster: SOC-PROD-US-EAST • 99.98% SLA
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         MAIN APPLICATION ROUTE VIEWS
+         ========================================================================== -->
+    <main class="main-content">
+
+      <!-- ======================================================================
+           VIEW 1: LANDING HERO PAGE (#home)
+           ====================================================================== -->
+      <section class="view-section active" id="home-view">
+        <div class="hero-section">
+          <div class="hero-content">
+            <div class="hero-badge-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              AI-POWERED CYBERSECURITY PLATFORM
+            </div>
+
+            <h1 class="hero-title">
+              Detect. Investigate. Protect.
+            </h1>
+
+            <p class="hero-subtitle">
+              Analyze suspicious emails with AI, uncover hidden indicators, trace digital infrastructure, and generate actionable forensic intelligence.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#analyze" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Analyze Email
+              </a>
+              <a href="#dashboard" class="btn btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+                Explore Dashboard
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero 3D Holographic Visualizer -->
+          <div class="hero-visual-stage card-3d-perspective">
+            <div class="hero-radar-ring radar-sweep"></div>
+
+            <!-- Orbiting Threat Chips in Anti-Gravity -->
+            <div class="floating-badge badge-top-left float-slow">
+              <span>⚠️</span>
+              <span>Lookalike: globex-corp-finance.co</span>
+            </div>
+
+            <div class="floating-badge badge-top-right float-medium">
+              <span>🛡️</span>
+              <span>SPF: FAIL • DKIM: FAIL</span>
+            </div>
+
+            <div class="floating-badge badge-bottom-left float-fast">
+              <span>📍</span>
+              <span>Origin: 185.220.101.45 (RO)</span>
+            </div>
+
+            <div class="floating-badge badge-bottom-right float-slow">
+              <span>📦</span>
+              <span>Attachment: .pdf.iso (Malicious)</span>
+            </div>
+
+            <!-- Central Floating Holographic Email Card -->
+            <div class="holo-email-card float-medium" id="hero-floating-card">
+              <div class="holo-card-glow"></div>
+              <div class="holo-card-header">
+                <div class="holo-status-indicator">
+                  <span class="status-dot" style="background: #ef4444; box-shadow: 0 0 8px #ef4444;"></span>
+                  <span>SUSPICIOUS ENVELOPE</span>
+                </div>
+                <span class="badge badge-critical">87 CRITICAL</span>
+              </div>
+
+              <div class="holo-email-meta">
+                <div class="holo-meta-row">
+                  <span class="holo-meta-label">FROM:</span>
+                  <span class="holo-meta-value threat-flag">ceo@globex-corp-finance.co</span>
+                </div>
+                <div class="holo-meta-row">
+                  <span class="holo-meta-label">REPLY:</span>
+                  <span class="holo-meta-value threat-flag">transfer-clearance@stealth-wire.net</span>
+                </div>
+                <div class="holo-meta-row">
+                  <span class="holo-meta-label">SUBJ:</span>
+                  <span class="holo-meta-value">URGENT: Executive Wire Transfer #INV-88392</span>
+                </div>
+              </div>
+
+              <div class="holo-threat-preview">
+                <div class="holo-threat-title">
+                  <span>Executive Impersonation (BEC)</span>
+                  <span>96% CONF</span>
+                </div>
+                <div class="holo-threat-sub">Weaponized ISO dropper detected in attachment</div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.7rem; color: #64748b;">
+                <span>TRACE: RO → DE → US</span>
+                <span style="color: var(--cyan-neon);">AI SCAN COMPLETE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Investigation Pipeline Flow Animation -->
+        <div class="pipeline-flow-container">
+          <div class="pipeline-flow-header">
+            <span class="pipeline-flow-title">
+              <span class="status-dot"></span>
+              AUTOMATED FORENSIC PIPELINE EXECUTION
+            </span>
+            <span class="badge badge-cyan pipeline-stream-active">LIVE STREAM</span>
+          </div>
+
+          <div class="pipeline-steps-grid">
+            <div class="pipeline-step-item active">
+              <div class="pipeline-step-node">✉️</div>
+              <span class="pipeline-step-label">1. Email Ingest</span>
+            </div>
+            <div class="pipeline-step-item active">
+              <div class="pipeline-step-node">🧠</div>
+              <span class="pipeline-step-label">2. AI Analysis</span>
+            </div>
+            <div class="pipeline-step-item active">
+              <div class="pipeline-step-node">🚨</div>
+              <span class="pipeline-step-label">3. Threat Detection</span>
+            </div>
+            <div class="pipeline-step-item active">
+              <div class="pipeline-step-node">🌐</div>
+              <span class="pipeline-step-label">4. Geolocation</span>
+            </div>
+            <div class="pipeline-step-item active">
+              <div class="pipeline-step-node">🔬</div>
+              <span class="pipeline-step-label">5. Forensics</span>
+            </div>
+            <div class="pipeline-step-item active">
+              <div class="pipeline-step-node">📑</div>
+              <span class="pipeline-step-label">6. Case Report</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Enterprise Statistics Grid -->
+        <div class="hero-stats-grid">
+          <div class="hero-stat-card">
+            <div class="hero-stat-value">2,849,120+</div>
+            <div class="hero-stat-label">Emails Analyzed</div>
+            <span class="hero-stat-tag">Global Ingress Telemetry*</span>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-value" style="color: #f87171;">412,890+</div>
+            <div class="hero-stat-label">Threats Detected</div>
+            <span class="hero-stat-tag">Phishing, BEC & Malware*</span>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-value" style="color: #facc15;">1,095,430+</div>
+            <div class="hero-stat-label">Suspicious URLs Found</div>
+            <span class="hero-stat-tag">Lookalikes & IP Targets*</span>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-value" style="color: var(--cyan-neon);">187,200+</div>
+            <div class="hero-stat-label">Forensic Reports Generated</div>
+            <span class="hero-stat-tag">Automated Incident Cases*</span>
+          </div>
+        </div>
+        <p style="font-size: 0.72rem; color: #64748b; text-align: center; margin-top: 12px; font-family: var(--font-mono);">
+          *Simulated enterprise demonstration data for portfolio and academic review.
+        </p>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 2: EMAIL ANALYSIS PAGE (#analyze)
+           ====================================================================== -->
+      <section class="view-section" id="analyze-view">
+        <div class="section-header">
+          <span class="section-tag">
+            <span class="status-dot"></span> FORENSIC INSPECTION SUITE
+          </span>
+          <h2 class="section-title">Email Analysis & Threat Detection</h2>
+          <p class="section-desc">
+            Upload an RFC 5322 .EML file or trigger realistic attack simulations for instant AI-powered threat scoring, header deconstruction, and network tracing.
+          </p>
+        </div>
+
+        <div class="analysis-container">
+          <!-- Upload Area & Drag-and-Drop Zone -->
+          <div class="upload-zone-wrapper">
+            <div class="upload-dropzone" id="upload-dropzone">
+              <div class="laser-bar"></div>
+              <div class="dropzone-icon-box">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+              </div>
+
+              <h3 class="dropzone-title">Drop your .EML file here</h3>
+              <p class="dropzone-desc">
+                Upload an email file for AI-powered threat analysis and forensic investigation. Supports .EML, .TXT, and RFC 822 format headers.
+              </p>
+
+              <div class="dropzone-actions">
+                <button type="button" class="btn btn-primary" id="btn-upload-eml">Upload EML</button>
+                <button type="button" class="btn btn-secondary" id="btn-browse-file">Browse File</button>
+                <button type="button" class="btn btn-outline" id="btn-paste-raw">Paste Raw EML / Headers</button>
+              </div>
+
+              <input type="file" id="eml-file-input" class="hidden-file-input" accept=".eml,.txt,.msg">
+            </div>
+
+            <!-- Demo Presets Bar -->
+            <div class="demo-presets-bar">
+              <span class="demo-presets-title">
+                <span>⚡</span> QUICK ATTACK & VERIFICATION SIMULATIONS:
+              </span>
+              <div class="demo-buttons-group">
+                <button type="button" class="btn btn-danger btn-sm" id="btn-try-demo">
+                  🔥 Try Demo Email (Critical BEC / Phish)
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-try-safe">
+                  🛡️ Try Safe Corporate Email
+                </button>
+                <button type="button" class="btn btn-outline btn-sm" id="btn-try-malware">
+                  ☣️ Try Malware Delivery
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Privacy & Security UX Message -->
+          <div class="privacy-security-banner">
+            <div class="privacy-banner-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <div class="privacy-banner-text">
+              <strong class="privacy-banner-highlight">Security & Privacy Notice:</strong> Your email data is handled securely. Client-side heuristic parsing is conducted in isolated browser memory. Avoid uploading proprietary or sensitive enterprise emails to public demonstration environments.
+            </div>
+          </div>
+
+          <!-- 5. RISK SCORE SYSTEM (0-100) -->
+          <div class="cyber-card threat-critical" id="risk-score-container">
+            <div class="card-header-flex">
+              <span class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                AI Threat Risk Assessment Meter
+              </span>
+              <span class="evidence-count-pill" id="risk-evidence-count">8 Critical Indicators Found</span>
+            </div>
+
+            <div class="risk-score-card">
+              <!-- Radial SVG Circular Gauge -->
+              <div class="risk-gauge-container">
+                <div class="gauge-svg-wrap">
+                  <svg width="220" height="220" viewBox="0 0 220 220">
+                    <!-- Background Track -->
+                    <circle cx="110" cy="110" r="90" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="14" />
+                    <!-- Animated Progress Meter (Circumference ≈ 565.48) -->
+                    <circle id="risk-circle-meter" cx="110" cy="110" r="90" fill="none" stroke="#dc2626" stroke-width="14"
+                            stroke-linecap="round" stroke-dasharray="565.48" stroke-dashoffset="73.5"
+                            transform="rotate(-90 110 110)" style="transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.4s ease;" />
+                  </svg>
+                  <div class="gauge-score-inner">
+                    <span class="gauge-score-number" id="risk-score-num">87</span>
+                    <span class="gauge-score-max">/ 100 THREAT SCORE</span>
+                    <span class="badge badge-critical gauge-state-badge" id="risk-state-badge">CRITICAL</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Risk Explanation & Scale Breakdown -->
+              <div class="risk-details-content">
+                <div class="risk-headline-group">
+                  <div class="risk-tier-label" id="risk-tier-text">
+                    <span style="color: #ef4444;">●</span> Severe Malicious Activity Detected
+                  </div>
+                </div>
+
+                <p class="risk-explanation-text" id="risk-explanation">
+                  Multiple critical threat vectors detected: high-profile executive impersonation (CEO fraud / BEC), domain typosquatting, deceptive Reply-To rerouting, and a weaponized ISO disc image attachment disguised as a PDF invoice.
+                </p>
+
+                <!-- 0-100 Risk Scale Visualizer -->
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.72rem; color: #94a3b8; margin-bottom: 4px;">
+                    <span>SAFE (0-19)</span>
+                    <span>LOW (20-39)</span>
+                    <span>SUSPICIOUS (40-59)</span>
+                    <span>HIGH (60-79)</span>
+                    <span>CRITICAL (80-100)</span>
+                  </div>
+                  <div class="risk-scale-meter">
+                    <div class="scale-segment safe"></div>
+                    <div class="scale-segment low"></div>
+                    <div class="scale-segment suspicious"></div>
+                    <div class="scale-segment high"></div>
+                    <div class="scale-segment critical active-tier"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. AI THREAT DETECTION PANEL -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-neon)" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                Threat Classification & Heuristic Confidence
+              </span>
+              <span class="badge badge-cyan">AI INFERENCE v4.2</span>
+            </div>
+
+            <div class="threats-grid" id="threats-grid-container">
+              <!-- Dynamically populated threat cards -->
+            </div>
+          </div>
+
+          <!-- 7. EMAIL OVERVIEW PANEL -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-primary)" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Envelope & Header Anomaly Inspection
+              </span>
+              <span class="badge badge-neutral">RFC 5322</span>
+            </div>
+
+            <div class="email-overview-grid">
+              <div class="overview-field-row">
+                <span class="overview-field-label">From (Display Sender)</span>
+                <div class="overview-field-value" id="meta-sender">
+                  <span>Johnathan Davis &lt;ceo@globex-corp-finance.co&gt;</span>
+                  <span class="mismatch-alert-tag">⚠️ Anomalous Divergence</span>
+                </div>
+              </div>
+
+              <div class="overview-field-row">
+                <span class="overview-field-label">Reply-To (Reroute Target)</span>
+                <div class="overview-field-value" id="meta-replyto">
+                  <span>transfer-clearance@stealth-wire-service.net</span>
+                  <span class="mismatch-alert-tag">⚠️ Untrusted Destination</span>
+                </div>
+              </div>
+
+              <div class="overview-field-row">
+                <span class="overview-field-label">Return-Path</span>
+                <div class="overview-field-value" id="meta-returnpath">
+                  <span>bounce-agent@bulletproof-relay.ru</span>
+                </div>
+              </div>
+
+              <div class="overview-field-row">
+                <span class="overview-field-label">Recipient (Target)</span>
+                <div class="overview-field-value" id="meta-recipient">
+                  <span>Emily Watson &lt;emily.watson@globex-corp.com&gt;</span>
+                </div>
+              </div>
+
+              <div class="overview-field-row">
+                <span class="overview-field-label">Subject</span>
+                <div class="overview-field-value mono" id="meta-subject">
+                  <span>URGENT: Executive Wire Transfer Authorization Required - Ref #INV-88392</span>
+                </div>
+              </div>
+
+              <div class="overview-field-row">
+                <span class="overview-field-label">Timestamp</span>
+                <div class="overview-field-value mono" id="meta-date">
+                  <span>Thu, 01 Oct 2026 09:14:22 -0400</span>
+                </div>
+              </div>
+
+              <div class="overview-field-row">
+                <span class="overview-field-label">Message-ID</span>
+                <div class="overview-field-value mono" id="meta-messageid" style="font-size: 0.78rem;">
+                  <span>&lt;20261001091422.9F82A1@globex-corp-finance.co&gt;</span>
+                </div>
+              </div>
+
+              <div class="overview-field-row">
+                <span class="overview-field-label">Extracted Entities</span>
+                <div class="overview-field-value" id="meta-counts">
+                  <span>3 URLs | 1 Attachment | 3 Hops</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. EMAIL HEADER FORENSICS & SMTP RELAY -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 14 14"></polyline>
+                </svg>
+                SMTP Relay Path & Mail Server Chain
+              </span>
+              <span class="badge badge-neutral">Originating IP: <span id="forensics-origin-ip" class="mono">185.220.101.45</span></span>
+            </div>
+
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 20px;">
+              Interactive transmission sequence extracted from multi-hop <code>Received:</code> headers. Click any node to inspect latency, cipher, and reverse DNS telemetry.
+            </p>
+
+            <div class="relay-chain-container">
+              <div class="relay-chain-line"></div>
+              <div id="smtp-relay-chain" style="display: flex; justify-content: space-between; width: 100%; position: relative; z-index: 2;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. SPF / DKIM / DMARC AUTHENTICATION -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-neon)" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                Cryptographic Authentication Compliance
+              </span>
+              <span class="badge badge-neutral">RFC 7208 / 6376 / 7489</span>
+            </div>
+
+            <div class="auth-cards-grid">
+              <!-- SPF Card -->
+              <div class="auth-card status-fail" id="auth-card-spf">
+                <div class="auth-card-top">
+                  <span class="auth-protocol-name">SPF</span>
+                  <span class="badge badge-critical auth-status-badge">FAIL</span>
+                </div>
+                <div class="auth-details-list">
+                  <div class="auth-detail-row">
+                    <span class="auth-detail-key">Evaluated Domain:</span>
+                    <span class="auth-detail-val auth-domain-val">globex-corp-finance.co</span>
+                  </div>
+                  <div class="auth-detail-row">
+                    <span class="auth-detail-key">Alignment:</span>
+                    <span class="auth-detail-val auth-align-val">FAIL (Unaligned)</span>
+                  </div>
+                  <p class="auth-exp-val" style="font-size: 0.78rem; color: #94a3b8; margin-top: 6px;">
+                    Sender IP 185.220.101.45 is not authorized by the designated domain's SPF record.
+                  </p>
+                </div>
+              </div>
+
+              <!-- DKIM Card -->
+              <div class="auth-card status-fail" id="auth-card-dkim">
+                <div class="auth-card-top">
+                  <span class="auth-protocol-name">DKIM</span>
+                  <span class="badge badge-critical auth-status-badge">FAIL</span>
+                </div>
+                <div class="auth-details-list">
+                  <div class="auth-detail-row">
+                    <span class="auth-detail-key">Selector:</span>
+                    <span class="auth-detail-val auth-domain-val">s2024</span>
+                  </div>
+                  <div class="auth-detail-row">
+                    <span class="auth-detail-key">Cryptographic Hash:</span>
+                    <span class="auth-detail-val auth-align-val">INVALID / ALTERED</span>
+                  </div>
+                  <p class="auth-exp-val" style="font-size: 0.78rem; color: #94a3b8; margin-top: 6px;">
+                    DKIM signature failed cryptographic hash verification. Message body or headers were modified in transit.
+                  </p>
+                </div>
+              </div>
+
+              <!-- DMARC Card -->
+              <div class="auth-card status-fail" id="auth-card-dmarc">
+                <div class="auth-card-top">
+                  <span class="auth-protocol-name">DMARC</span>
+                  <span class="badge badge-critical auth-status-badge">FAIL</span>
+                </div>
+                <div class="auth-details-list">
+                  <div class="auth-detail-row">
+                    <span class="auth-detail-key">Enforced Policy:</span>
+                    <span class="auth-detail-val auth-domain-val">p=reject</span>
+                  </div>
+                  <div class="auth-detail-row">
+                    <span class="auth-detail-key">Disposition:</span>
+                    <span class="auth-detail-val auth-align-val">QUARANTINE_RECOMMENDED</span>
+                  </div>
+                  <p class="auth-exp-val" style="font-size: 0.78rem; color: #94a3b8; margin-top: 6px;">
+                    Both SPF and DKIM fail domain alignment with From header. Domain policy dictates rejection.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. URL & DOMAIN INTELLIGENCE TABLE -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-primary)" stroke-width="2">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+                URL & Domain Threat Intelligence
+              </span>
+              <span class="badge badge-neutral">Reputation Scanners</span>
+            </div>
+
+            <div class="table-responsive">
+              <table class="cyber-table">
+                <thead>
+                  <tr>
+                    <th>Extracted URL</th>
+                    <th>Domain</th>
+                    <th>Protocol</th>
+                    <th>Reputation</th>
+                    <th>Heuristic Flags</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="url-intelligence-tbody">
+                  <!-- Dynamically rendered -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 11. IP GEOLOCATION & INFRASTRUCTURE MAP -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-neon)" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                BGP IP Geolocation & Infrastructure Tracer
+              </span>
+              <span class="badge badge-neutral">Approximate Telemetry</span>
+            </div>
+
+            <div class="map-visual-container">
+              <!-- World Map Canvas/SVG -->
+              <div class="map-canvas-wrapper" id="geo-world-map"></div>
+
+              <!-- Infrastructure Intelligence Side Panel -->
+              <div>
+                <h4 style="font-size: 0.95rem; margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 8px;">
+                  <span>📡</span> Infrastructure Telemetry Hops
+                </h4>
+                <div class="infra-cards-list" id="infra-cards-list">
+                  <!-- Dynamically populated IP cards -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12. ATTACHMENT ANALYSIS PANEL -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2">
+                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
+                </svg>
+                MIME Attachment Sandbox & Static Inspection
+              </span>
+              <span class="badge badge-safe">Zero-Execution Mode Guaranteed</span>
+            </div>
+
+            <div class="attachment-card-grid" id="attachments-grid">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- 13. THREAT INDICATORS (IOC) PANEL -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-neon)" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                Extracted Indicators of Compromise (IOC)
+              </span>
+              <button class="btn btn-outline btn-sm" onclick="navigator.clipboard.writeText(JSON.stringify(inboxGuardianApp.currentCase.iocs, null, 2)); inboxGuardianApp.showToast('Copied all IOCs (JSON)');">
+                Copy All IOCs
+              </button>
+            </div>
+
+            <div class="ioc-panel-wrapper">
+              <div class="ioc-tabs-nav">
+                <button type="button" class="ioc-tab-btn active" data-filter="all">All IOCs</button>
+                <button type="button" class="ioc-tab-btn" data-filter="IP">IP Addresses</button>
+                <button type="button" class="ioc-tab-btn" data-filter="Domain">Domains</button>
+                <button type="button" class="ioc-tab-btn" data-filter="URL">URLs</button>
+                <button type="button" class="ioc-tab-btn" data-filter="Hash">File Hashes</button>
+                <button type="button" class="ioc-tab-btn" data-filter="Email">Email Addresses</button>
+              </div>
+
+              <div class="ioc-list-grid" id="ioc-list-container">
+                <!-- Dynamically populated IOC chips -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 14. FORENSIC EVIDENCE TIMELINE -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue-primary)" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 14 14"></polyline>
+                </svg>
+                Chronological Investigation Evidence Chain
+              </span>
+              <span class="badge badge-neutral">SOC Log Sequence</span>
+            </div>
+
+            <div class="forensic-timeline-list" id="forensic-timeline-container">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 3: SECURITY DASHBOARD (#dashboard)
+           ====================================================================== -->
+      <section class="view-section" id="dashboard-view">
+        <div class="section-header">
+          <span class="section-tag">
+            <span class="status-dot"></span> EXECUTIVE INTELLIGENCE OVERVIEW
+          </span>
+          <h2 class="section-title">Security Operations Dashboard</h2>
+          <p class="section-desc">
+            Aggregate telemetry, risk distribution metrics, and real-time threat categorization across monitored enterprise mail flows.
+          </p>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <div class="dashboard-metrics-grid">
+          <div class="hero-stat-card">
+            <div class="hero-stat-value" style="color: #f87171;">87 / 100</div>
+            <div class="hero-stat-label">Active Case Threat Score</div>
+            <span class="hero-stat-tag">State: CRITICAL</span>
+          </div>
+
+          <div class="hero-stat-card">
+            <div class="hero-stat-value" style="color: var(--cyan-neon);">BEC / Phish</div>
+            <div class="hero-stat-label">Primary Threat Vector</div>
+            <span class="hero-stat-tag">Executive Impersonation</span>
+          </div>
+
+          <div class="hero-stat-card">
+            <div class="hero-stat-value" style="color: #facc15;">0 / 3 PASS</div>
+            <div class="hero-stat-label">Authentication Integrity</div>
+            <span class="hero-stat-tag">SPF • DKIM • DMARC Failed</span>
+          </div>
+
+          <div class="hero-stat-card">
+            <div class="hero-stat-value" style="color: #60a5fa;">11 Extracted</div>
+            <div class="hero-stat-label">Threat Indicators (IOC)</div>
+            <span class="hero-stat-tag">3 IPs • 3 Domains • 3 URLs • 1 Hash</span>
+          </div>
+        </div>
+
+        <!-- Dashboard Charts Grid -->
+        <div class="dashboard-charts-grid">
+          <!-- Chart 1: Threat Categories Radar -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">Threat Category Exposure Matrix</span>
+              <span class="badge badge-neutral">Polar Vector</span>
+            </div>
+            <div class="chart-canvas-container">
+              <canvas id="chart-threat-categories"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 2: Risk Distribution Bar -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">Risk Tier Distribution</span>
+              <span class="badge badge-neutral">Enterprise Mail Flow</span>
+            </div>
+            <div class="chart-canvas-container">
+              <canvas id="chart-risk-distribution"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 3: Authentication Compliance Donut -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">SPF / DKIM / DMARC Pass Ratio</span>
+              <span class="badge badge-neutral">Integrity Ratio</span>
+            </div>
+            <div class="chart-canvas-container">
+              <canvas id="chart-auth-donut"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 4: 24h Scan Activity Line -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">24-Hour Inspection Velocity</span>
+              <span class="badge badge-cyan">Real-time Telemetry</span>
+            </div>
+            <div class="chart-canvas-container">
+              <canvas id="chart-activity-line"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 4: THREAT INTELLIGENCE FEED (#threat-intel)
+           ====================================================================== -->
+      <section class="view-section" id="threat-intel-view">
+        <div class="section-header">
+          <span class="section-tag">
+            <span class="status-dot"></span> THREAT REPUTATION DATABASE
+          </span>
+          <h2 class="section-title">Global Threat Intelligence Feed</h2>
+          <p class="section-desc">
+            Correlated indicators from honeypots, abuse feeds, and observed malware distribution infrastructure.
+          </p>
+        </div>
+
+        <div class="cyber-card">
+          <div class="card-header-flex" style="flex-wrap: wrap; gap: 14px;">
+            <div style="display: flex; gap: 12px; align-items: center; flex: 1; min-width: 280px;">
+              <input type="text" id="intel-search-input" class="btn btn-outline" style="text-align: left; padding: 8px 14px; width: 100%; max-width: 380px; font-family: var(--font-mono); font-size: 0.82rem;" placeholder="Search indicator, IP, domain, hash...">
+              <select id="intel-severity-filter" class="btn btn-outline" style="padding: 8px 12px; font-family: var(--font-mono); font-size: 0.82rem; background: #0b1122;">
+                <option value="ALL">All Severities</option>
+                <option value="CRITICAL">Critical Only</option>
+                <option value="HIGH">High Severity</option>
+              </select>
+            </div>
+            <span class="badge badge-neutral">*Simulated SOC Threat Stream</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="cyber-table">
+              <thead>
+                <tr>
+                  <th>Indicator</th>
+                  <th>Type</th>
+                  <th>Severity</th>
+                  <th>Threat Category</th>
+                  <th>Intelligence Source</th>
+                  <th>Last Observed</th>
+                  <th>Confidence</th>
+                </tr>
+              </thead>
+              <tbody id="threat-intel-tbody">
+                <!-- Dynamically populated from threat intelligence feed -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 5: FORENSICS WORKBENCH (#forensics)
+           ====================================================================== -->
+      <section class="view-section" id="forensics-view">
+        <div class="section-header">
+          <span class="section-tag">
+            <span class="status-dot"></span> DEEP FORENSIC WORKBENCH
+          </span>
+          <h2 class="section-title">Header Inspector & MIME Decoder</h2>
+          <p class="section-desc">
+            Inspect raw RFC 822 envelope headers, decode obfuscated Base64 / Quoted-Printable payloads, and sanitize message bodies.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <!-- Raw Header Inspector -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">Raw RFC 5322 Headers</span>
+              <button class="btn btn-outline btn-sm" onclick="navigator.clipboard.writeText(document.getElementById('workbench-raw-headers').textContent); inboxGuardianApp.showToast('Copied raw headers');">
+                Copy Raw
+              </button>
+            </div>
+            <pre id="workbench-raw-headers" class="mono" style="background: #040714; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px; font-size: 0.75rem; color: #94a3b8; height: 380px; overflow-y: auto; white-space: pre-wrap; line-height: 1.5;"></pre>
+          </div>
+
+          <!-- Base64 / Quoted-Printable Decoder Tool -->
+          <div class="cyber-card">
+            <div class="card-header-flex">
+              <span class="card-title">MIME & Obfuscation Decoder</span>
+              <span class="badge badge-cyan">Base64 / UTF-8</span>
+            </div>
+            <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 12px;">
+              Paste encoded string from email subject or attachment header to decode into plaintext:
+            </p>
+
+            <textarea id="workbench-encoded-input" class="btn btn-outline mono" style="width: 100%; height: 110px; text-align: left; padding: 10px; font-size: 0.78rem; resize: vertical; margin-bottom: 12px;" placeholder="Paste Base64 payload or encoded string (e.g. TVqQAAMAAAAE...)"></textarea>
+
+            <button type="button" class="btn btn-primary btn-sm" id="btn-workbench-decode" style="margin-bottom: 14px;">
+              Decode Payload
+            </button>
+
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #64748b; margin-bottom: 4px;">DECODED OUTPUT:</div>
+            <textarea id="workbench-decoded-output" readonly class="btn btn-outline mono" style="width: 100%; height: 140px; text-align: left; padding: 10px; font-size: 0.78rem; background: #040714; color: #38bdf8; resize: vertical;" placeholder="Decoded output will appear here..."></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 6: CASE REPORT GENERATION (#reports)
+           ====================================================================== -->
+      <section class="view-section" id="reports-view">
+        <div class="section-header">
+          <span class="section-tag">
+            <span class="status-dot"></span> FORMAL INCIDENT REPORT
+          </span>
+          <h2 class="section-title">Forensic Case Intelligence Report</h2>
+          <p class="section-desc">
+            Audit-ready forensic dossier detailing risk classification, verified indicators of compromise, and actionable incident containment playbooks.
+          </p>
+        </div>
+
+        <div class="report-viewer-card">
+          <!-- Report Header Banner -->
+          <div class="report-header-banner">
+            <div>
+              <div class="report-case-id" id="report-case-number">CASE ID: IG-20261001-CRIT-94F</div>
+              <div style="font-size: 0.84rem; color: #94a3b8; font-family: var(--font-mono); margin-top: 4px;" id="report-timestamp">
+                Generated: 2026-10-01T09:18:44Z • Classification: TLP:AMBER
+              </div>
+            </div>
+
+            <!-- Export Buttons -->
+            <div class="report-actions-row">
+              <button type="button" class="btn btn-primary btn-sm" id="btn-report-print">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                  <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                Download PDF / Print
+              </button>
+
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-report-json">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Export JSON
+              </button>
+
+              <button type="button" class="btn btn-outline btn-sm" id="btn-report-copy">
+                Copy Summary
+              </button>
+            </div>
+          </div>
+
+          <!-- 1. Executive Summary -->
+          <div class="report-section-block">
+            <h3 class="report-subhead">1. Executive Summary</h3>
+            <div id="report-exec-summary" style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1;"></div>
+          </div>
+
+          <!-- 2. Actionable Remediation Playbook -->
+          <div class="report-section-block">
+            <h3 class="report-subhead">2. Actionable Remediation & Containment Playbook</h3>
+            <div class="recommendations-grid" id="report-recs-grid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Formal Signoff -->
+          <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.75rem; color: #64748b;">
+            <span>INBOX GUARDIAN SOC ENGINE • V4.2.1</span>
+            <span>CYBERSECURITY RESEARCH & DEMONSTRATION</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 7: ABOUT PAGE (#about)
+           ====================================================================== -->
+      <section class="view-section" id="about-view">
+        <div class="section-header">
+          <span class="section-tag">
+            <span class="status-dot"></span> ARCHITECTURE & METHODOLOGY
+          </span>
+          <h2 class="section-title">About Inbox Guardian</h2>
+          <p class="section-desc">
+            An enterprise-style AI Email Threat Detection, Geolocation, and Forensic Intelligence platform engineered for modern cybersecurity operations.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 32px;">
+          <div class="cyber-card">
+            <h3 style="font-size: 1.3rem; margin-bottom: 14px; color: #ffffff;">Platform Architecture</h3>
+            <p style="margin-bottom: 16px; line-height: 1.7; color: #94a3b8;">
+              <strong>Inbox Guardian</strong> couples RFC 5322 MIME stream parsers with multi-layer heuristic threat detection engines to conduct zero-trust email triage.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+              <li style="display: flex; gap: 10px; font-size: 0.9rem;">
+                <span style="color: var(--cyan-neon);">●</span>
+                <span><strong>Multi-Hop Header Forensics:</strong> Deconstructs the chronological <code>Received:</code> chain to uncover adversary spoofing and relay rerouting.</span>
+              </li>
+              <li style="display: flex; gap: 10px; font-size: 0.9rem;">
+                <span style="color: var(--cyan-neon);">●</span>
+                <span><strong>Cryptographic Authentication:</strong> Direct evaluation of SPF CIDR authorization, DKIM RSA-SHA256 signature hashes, and DMARC alignment.</span>
+              </li>
+              <li style="display: flex; gap: 10px; font-size: 0.9rem;">
+                <span style="color: var(--cyan-neon);">●</span>
+                <span><strong>BGP Geolocation Correlation:</strong> Maps originating infrastructure through approximate BGP and ASN registries without relying on physical GPS assumptions.</span>
+              </li>
+              <li style="display: flex; gap: 10px; font-size: 0.9rem;">
+                <span style="color: var(--cyan-neon);">●</span>
+                <span><strong>Safe Static Attachment Triage:</strong> Identifies hazardous container extensions (.iso, .exe, .vbs) without executing payloads on the host.</span>
+              </li>
+            </ul>
+
+            <div class="privacy-security-banner">
+              <div class="privacy-banner-icon">ℹ️</div>
+              <div class="privacy-banner-text">
+                <strong>Educational & Research Disclaimer:</strong> All threat indicators, lookalike domains, IP addresses, and identities presented in demo datasets are simulated for educational, hackathon, and portfolio demonstration purposes.
+              </div>
+            </div>
+          </div>
+
+          <div class="cyber-card">
+            <h3 style="font-size: 1.15rem; margin-bottom: 14px; color: #ffffff;">Subsystem Specifications</h3>
+            <div style="display: flex; flex-direction: column; gap: 14px; font-size: 0.84rem;">
+              <div>
+                <span style="color: #64748b; font-family: var(--font-mono);">HEURISTIC ENGINE:</span>
+                <div style="color: #ffffff; font-weight: 600;">Weighted Cyber Scoring (0-100)</div>
+              </div>
+              <div>
+                <span style="color: #64748b; font-family: var(--font-mono);">PARSER STANDARD:</span>
+                <div style="color: #ffffff; font-weight: 600;">RFC 822 / 5322 & RFC 2045 MIME</div>
+              </div>
+              <div>
+                <span style="color: #64748b; font-family: var(--font-mono);">VISUAL ARCHITECTURE:</span>
+                <div style="color: #ffffff; font-weight: 600;">Vanilla CSS Glassmorphism + Anti-Gravity Motion</div>
+              </div>
+              <div>
+                <span style="color: #64748b; font-family: var(--font-mono);">REST BACKEND READY:</span>
+                <div style="color: #ffffff; font-weight: 600;">Python Standard Library HTTP & API Server</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ==========================================================================
+         SCANNING PROGRESS HUD OVERLAY (8 SEQUENTIAL STAGES)
+         ========================================================================== -->
+    <div class="scanning-hud-overlay" id="scanning-hud">
+      <div class="scanning-hud-card">
+        <div class="scanning-hud-header">
+          <div class="scan-radar-mini">
+            <div class="scan-radar-needle"></div>
+            <span style="font-size: 1.2rem;">🛡️</span>
+          </div>
+          <h3 class="hud-title">Executing AI Forensic Pipeline</h3>
+          <p class="hud-sub">INBOX GUARDIAN SOC ENGINE V4.2</p>
+        </div>
+
+        <!-- 8-Stage Progress Sequence -->
+        <div class="stages-progress-list">
+          <div class="stage-item" id="stage-1">
+            <div class="stage-item-left">
+              <span class="stage-num">01</span>
+              <span>Reading email stream & boundaries</span>
+            </div>
+            <span class="stage-status-icon">○ PENDING</span>
+          </div>
+          <div class="stage-item" id="stage-2">
+            <div class="stage-item-left">
+              <span class="stage-num">02</span>
+              <span>Parsing RFC 5322 envelope headers</span>
+            </div>
+            <span class="stage-status-icon">○ PENDING</span>
+          </div>
+          <div class="stage-item" id="stage-3">
+            <div class="stage-item-left">
+              <span class="stage-num">03</span>
+              <span>Extracting indicators & entities</span>
+            </div>
+            <span class="stage-status-icon">○ PENDING</span>
+          </div>
+          <div class="stage-item" id="stage-4">
+            <div class="stage-item-left">
+              <span class="stage-num">04</span>
+              <span>Checking SPF / DKIM / DMARC authentication</span>
+            </div>
+            <span class="stage-status-icon">○ PENDING</span>
+          </div>
+          <div class="stage-item" id="stage-5">
+            <div class="stage-item-left">
+              <span class="stage-num">05</span>
+              <span>Analyzing URLs, redirects & lookalikes</span>
+            </div>
+            <span class="stage-status-icon">○ PENDING</span>
+          </div>
+          <div class="stage-item" id="stage-6">
+            <div class="stage-item-left">
+              <span class="stage-num">06</span>
+              <span>Tracing BGP routing & IP geolocation</span>
+            </div>
+            <span class="stage-status-icon">○ PENDING</span>
+          </div>
+          <div class="stage-item" id="stage-7">
+            <div class="stage-item-left">
+              <span class="stage-num">07</span>
+              <span>Detecting cyber threats & calculating risk score</span>
+            </div>
+            <span class="stage-status-icon">○ PENDING</span>
+          </div>
+          <div class="stage-item" id="stage-8">
+            <div class="stage-item-left">
+              <span class="stage-num">08</span>
+              <span>Generating forensic intelligence case report</span>
+            </div>
+            <span class="stage-status-icon">○ PENDING</span>
+          </div>
+        </div>
+
+        <div class="scanning-bar-track">
+          <div class="scanning-bar-fill" id="scanning-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         RAW EML / HEADERS PASTE MODAL
+         ========================================================================== -->
+    <div class="scanning-hud-overlay" id="raw-paste-modal" style="display: none;">
+      <div class="scanning-hud-card" style="max-width: 720px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h3 style="font-size: 1.25rem; font-weight: bold; color: #ffffff;">Paste Raw Email Content or Headers</h3>
+          <button type="button" class="btn btn-outline btn-sm" id="btn-close-raw-modal">✕ Close</button>
+        </div>
+        <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 12px;">
+          Paste raw email text containing standard headers (From, To, Subject, Received, etc.) to trigger real-time client parsing:
+        </p>
+        <textarea id="raw-eml-textarea" class="btn btn-outline mono" style="width: 100%; height: 260px; text-align: left; padding: 12px; font-size: 0.78rem; resize: vertical; margin-bottom: 16px;" placeholder="From: sender@domain.com&#10;To: recipient@corp.com&#10;Subject: Urgent Security Notice&#10;Date: Thu, 01 Oct 2026 10:00:00 -0400&#10;&#10;Email body content here..."></textarea>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn btn-primary" id="btn-analyze-raw-submit">Analyze Raw Content</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <div class="brand-logo">
+            <div class="logo-symbol" style="width: 32px; height: 32px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <span class="logo-title" style="font-size: 1rem;">INBOX GUARDIAN</span>
+          </div>
+          <p class="footer-brand-desc">
+            AI-Powered Email Threat Detection, BGP GeoLocation & Forensic Intelligence Platform.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home" class="footer-link">Home Overview</a></li>
+            <li><a href="#analyze" class="footer-link">Email Analysis</a></li>
+            <li><a href="#dashboard" class="footer-link">Operations Dashboard</a></li>
+            <li><a href="#threat-intel" class="footer-link">Threat Intelligence</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Forensics</h4>
+          <ul class="footer-links">
+            <li><a href="#forensics" class="footer-link">Header Inspector</a></li>
+            <li><a href="#reports" class="footer-link">Case Reports</a></li>
+            <li><a href="#about" class="footer-link">Architecture</a></li>
+            <li><a href="server.py" class="footer-link" target="_blank">Backend Source</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Preferences</h4>
+          <ul class="footer-links">
+            <li><button type="button" class="btn btn-outline btn-sm" id="reduced-motion-toggle" style="width: 100%;">Toggle Motion FX</button></li>
+          </ul>
+          <div class="footer-disclaimer" style="margin-top: 14px;">
+            <span>🛡️</span> Built for cybersecurity research, education and demonstration.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 INBOX GUARDIAN. All rights reserved. Enterprise Cybersecurity Platform.</span>
+        <span>Version 4.2.1 • Zero-Trust Email Forensics</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/particles.js"></script>
+  <script src="js/demoData.js"></script>
+  <script src="js/emlParser.js"></script>
+  <script src="js/threatEngine.js"></script>
+  <script src="js/mapVisualizer.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/apiService.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

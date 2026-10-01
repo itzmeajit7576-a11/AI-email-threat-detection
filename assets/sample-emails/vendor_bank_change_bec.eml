@@ -1,0 +1,36 @@
+Received: from mail-gateway.compromised-vps.nl (mail-gateway.compromised-vps.nl [194.26.29.112])
+	by relay-eu.enterprise-mail.net with ESMTPS id 9A0192BF8;
+	Thu, 01 Oct 2026 12:44:10 -0400
+Received: from relay-eu.enterprise-mail.net (relay-eu.enterprise-mail.net [198.51.100.24])
+	by mx.target-corporation.com with ESMTPS id 4B821A90;
+	Thu, 01 Oct 2026 12:44:12 -0400
+From: "David Miller - Apex Logistics Billing" <billing@apex-logistics-portal.co>
+To: "Accounts Payable" <ap-finance@target-corporation.com>
+Reply-To: remittance-clearance@apex-finance-settlement.net
+Return-Path: <bounce@bulletproof-transit.ru>
+Subject: URGENT: Updated Banking Routing Instructions for Outstanding Invoice #APEX-89021
+Date: Thu, 01 Oct 2026 12:44:00 -0400
+Message-ID: <20261001124400.89021@apex-logistics-portal.co>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+Attention Accounts Payable Team,
+
+Please be advised that effective immediately, Apex Logistics has migrated our primary remittance clearing account due to our fiscal banking restructuring.
+
+All pending disbursements for Invoice #APEX-89021 ($84,200.00 USD) must be wired to our new clearing facility to prevent delivery halt:
+
+New Beneficiary Bank: Offshore Mercantile Bank Corp
+Routing Number: 021000021
+Account Number: 9942-8812-4019
+SWIFT Code: OMBKUS33
+
+Please review and confirm payment receipt via the vendor portal:
+https://portal-apex-logistics-settlement.com/confirm-remittance?token=88a10b
+
+Do not remit funds to the previously recorded Chase Treasury account.
+
+Sincerely,
+David Miller
+Senior Treasury Operations Director
+Apex Logistics Global Partners

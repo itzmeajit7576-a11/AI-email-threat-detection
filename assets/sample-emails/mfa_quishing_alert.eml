@@ -1,0 +1,26 @@
+Received: from outbound-mta.phish-infra.cloud (outbound-mta.phish-infra.cloud [185.220.101.45])
+	by mx-filter.corporate-defense.com with ESMTPS id 7F1092;
+	Thu, 01 Oct 2026 13:10:20 -0400
+From: "Microsoft 365 Identity Guardian" <security-noreply@microsoft-mfa-protection.live>
+To: "Employee" <staff@enterprise-domain.com>
+Reply-To: credential-logger@darkweb-collector.cc
+Subject: Action Required: Mandatory Authenticator QR Code Sync Required within 24 Hours
+Date: Thu, 01 Oct 2026 13:10:00 -0400
+Message-ID: <mfa.20261001.131000@microsoft-mfa-protection.live>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+MICROSOFT ENTITY AUTHENTICATION NOTICE
+
+Your tenant Multi-Factor Authentication (MFA) token has expired following the latest Azure Active Directory security cycle.
+Failure to re-synchronize your mobile authenticator within 24 hours will result in enterprise account lock-out.
+
+To refresh your authenticator configuration, open your Authenticator app and scan or click the verification URL:
+https://account-verify-microsoft365.online/sync-device?uid=8849102
+
+Backup Authentication Node: http://194.26.29.112/mfa/token.html
+
+Do not share this authorization link with anyone.
+
+Global Identity Security Operations
+Microsoft 365 Tenant Admin

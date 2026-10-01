@@ -1,0 +1,264 @@
+/* ==========================================================================
+   INBOX GUARDIAN - ANTI-GRAVITY & MOTION SYSTEM
+   Floating Holograms | Orbiting Nodes | Radar Sweeps | Reduced Motion
+   ========================================================================== */
+
+/* 1. Anti-Gravity Floating Motion */
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes floatMedium {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(-1.5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes floatFast {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.float-medium {
+  animation: floatMedium 4.5s ease-in-out infinite;
+}
+
+.float-fast {
+  animation: floatFast 3s ease-in-out infinite;
+}
+
+/* 2. Slow Orbital Movement for Floating Badges */
+@keyframes orbitClockwise {
+  from {
+    transform: rotate(0deg) translateX(190px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(190px) rotate(-360deg);
+  }
+}
+
+@keyframes orbitCounter {
+  from {
+    transform: rotate(360deg) translateX(140px) rotate(-360deg);
+  }
+  to {
+    transform: rotate(0deg) translateX(140px) rotate(0deg);
+  }
+}
+
+.orbit-cw {
+  animation: orbitClockwise 28s linear infinite;
+}
+
+.orbit-ccw {
+  animation: orbitCounter 22s linear infinite;
+}
+
+/* 3. AI Scanner Radar & Ring Pulse */
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scanRingPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.4;
+  }
+}
+
+.radar-sweep {
+  animation: radarSweep 4s linear infinite;
+  transform-origin: center center;
+}
+
+.scan-pulse {
+  animation: scanRingPulse 3.5s ease-in-out infinite;
+}
+
+/* 4. Laser Scan Bar for EML Uploading */
+@keyframes laserSweep {
+  0% {
+    top: 0%;
+    opacity: 0.2;
+  }
+  50% {
+    top: 96%;
+    opacity: 1;
+    box-shadow: 0 0 20px var(--cyan-neon), 0 0 40px var(--cyan-neon);
+  }
+  100% {
+    top: 0%;
+    opacity: 0.2;
+  }
+}
+
+.laser-bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--cyan-neon), #ffffff, var(--cyan-neon), transparent);
+  box-shadow: 0 0 15px var(--cyan-neon);
+  animation: laserSweep 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* 5. Threat Pulses */
+@keyframes criticalPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(220, 38, 38, 0.3);
+    border-color: rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(220, 38, 38, 0.7);
+    border-color: rgba(220, 38, 38, 0.85);
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+    box-shadow: 0 0 12px currentColor;
+  }
+}
+
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-150%) rotate(45deg);
+  }
+  50%, 100% {
+    transform: translateX(150%) rotate(45deg);
+  }
+}
+
+/* 6. Pipeline Live Flow Animation */
+@keyframes pipelineFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.pipeline-stream-active {
+  background: linear-gradient(90deg, #38bdf8, #00f2fe, #6366f1, #38bdf8);
+  background-size: 200% 100%;
+  animation: pipelineFlow 2.5s linear infinite;
+}
+
+/* 7. Hover Card Elevation with Parallax 3D Perspective */
+.card-3d-perspective {
+  perspective: 1200px;
+}
+
+.card-3d-inner {
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+/* 8. Scanning Stage Progress Pulse */
+@keyframes stagePulse {
+  0%, 100% {
+    background: rgba(0, 242, 254, 0.15);
+    border-color: var(--cyan-neon);
+  }
+  50% {
+    background: rgba(0, 242, 254, 0.35);
+    border-color: #ffffff;
+    box-shadow: 0 0 16px rgba(0, 242, 254, 0.6);
+  }
+}
+
+.stage-scanning-active {
+  animation: stagePulse 1.2s ease-in-out infinite;
+}
+
+/* 9. Glowing Connection Arc Dash Movement */
+@keyframes arcDash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.map-arc-animated {
+  stroke-dasharray: 8 6;
+  animation: arcDash 1.2s linear infinite;
+}
+
+/* ==========================================================================
+   REDUCED MOTION SUPPORT (ACCESSIBILITY COMPLIANT)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .float-slow,
+  .float-medium,
+  .float-fast,
+  .orbit-cw,
+  .orbit-ccw,
+  .radar-sweep,
+  .scan-pulse,
+  .laser-bar,
+  .map-arc-animated {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* User Manual Reduced Motion Override Class */
+body.reduced-motion *,
+body.reduced-motion ::before,
+body.reduced-motion ::after {
+  animation: none !important;
+  transition: none !important;
+}
